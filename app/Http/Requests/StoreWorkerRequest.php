@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
 
 class StoreWorkerRequest extends FormRequest
 {
@@ -27,6 +29,10 @@ class StoreWorkerRequest extends FormRequest
         ];
     }
 
+    public function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(response()->json($validator->errors()));
+    }
     public function messages(): array
     {
         return [
