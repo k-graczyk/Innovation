@@ -12,4 +12,8 @@ Route::get('/user', function (Request $request) {
 
 Route::post('workers', [WorkerController::class, 'store'])->name('workers.store');
 
-Route::post('worktimes', [WorktimeController::class, 'store'])->name('worktimes.store');
+Route::prefix('worktimes')->group(function () {
+    Route::post('/', [WorktimeController::class, 'store'])->name('worktime.store');
+    Route::get('/daily', [WorktimeController::class, 'dailySum'])->name('worktime.dailySum');
+    Route::get('/monthly', [WorktimeController::class, 'monthlySum'])->name('worktime.monthlySum');
+});
