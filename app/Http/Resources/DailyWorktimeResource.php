@@ -15,9 +15,9 @@ class DailyWorktimeResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'ilość godzin' => data_get($this, 'hours'),
-            'stawka' => data_get($this, 'rate') . ' PLN',
-            'suma po przeliczeniu' => data_get($this, 'sum') . ' PLN',
+            'hours' => data_get($this, 'hours'), // ilość godzin
+            'rate' => data_get($this, 'rate') . ' PLN', // stawka
+            'sum' => data_get($this, 'sum') . ' PLN', //suma po przeliczeniu
         ];
     }
 }

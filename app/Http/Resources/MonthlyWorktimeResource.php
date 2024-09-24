@@ -15,11 +15,11 @@ class MonthlyWorktimeResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'ilość godzin' => data_get($this, 'normal_hours'),
-            'ilość nadgodzin' => data_get($this, 'overtime_hours'),
-            'stawka' => data_get($this, 'rate') . ' PLN',
-            'stawka nadgodzinowa' => data_get($this, 'overtime_rate') . ' PLN',
-            'suma po przeliczeniu' => data_get($this, 'total') . ' PLN',
+            'normal_hours' => data_get($this, 'normal_hours'), // ilość godzin
+            'overtime_hours' => data_get($this, 'overtime_hours'), // ilość nadgodzin
+            'rate' => data_get($this, 'rate') . ' PLN', //stawka
+            'overtime_rate' => data_get($this, 'overtime_rate') . ' PLN', // stawka nadgodzinowa
+            'total' => data_get($this, 'total') . ' PLN', //suma po przeliczeniu
         ];
     }
 }
